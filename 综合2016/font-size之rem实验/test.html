@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2015-9-27 10:41:48">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="template.js"></script>
+    <style type="text/css">
+        html,body{font-size:14px;margin:0px;padding:0px;font-family:Microsoft YaHei;}
+        li {list-style:none;}
+        img {border:0px;}
+        a {text-decoration:none;}
+        .clear {clear:both;}
+        
+        .title { background-color: #936; color: #fff; }
+        #center {width:800px;margin:0 auto;padding:50px;}
+        #single,#list { border: 1px solid #ccc; margin-bottom: 5px; }
+        .unknown { color: #960; font-style: italic; }
+        literal { color: red; }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <div id="templateProduct"></div>
+        <div id="templateProducts"></div>
+        <span class="title">单例demo</span>
+        <div id="single" class="person-info">
+            <span data-id="{{id}}">{{id}}</span>
+            <p>姓名：<literal name="name"> </literal></p>
+            <p>年龄：<literal name="age">0</literal>岁</p>
+        </div>
+        <span class="title">列表demo</span>
+        <div id="list" class="product-info">
+            <div>
+                <h2>{{title}}</h2>
+                <span>url:{{url}}</span>
+                <p>商品名称：<literal name="name"></literal></p>
+                <p>商品价格：<literal name="price">0$</literal></p>
+                <p>商品标签：<foreach name="tag"><a data-url="${url}">id:${id}</a>no:${no}</foreach></p>
+                <div>==================</div>
+            </div>
+        </div>
+        <literal style="color:red;font-size:12px;">literal</literal><literal class="unknown">literal</literal>
+        <span class="title">数据是json对象，形式是：多个键string值和一个键+json数组</span>
+        <div id="sans">
+            <h2>{{title}}</h2>
+            <ul>
+                <foreach name="lights">
+                    <li>width:{{width}},height:{{height}}</li>
+                </foreach>
+            </ul>
+            <p>价格:{{price}}$</p>
+        </div>
+        <span class="title">数据是json对象，形式是：多个键string值和2个键+json数组</span>
+        <div id="product">
+            <h2>名称：{{title}}</h2>
+            <foreach name="colorLists">
+                <div><span>颜色：{{color}}，价格：{{cprice}}</span></div>
+            </foreach>
+            <foreach name="sizeLists">
+                <div><span>尺寸{{size}}，库存：{{count}}</span></div>
+            </foreach>
+            <p>价格：{{price}}</p>
+        </div>
+        <span class="title">数据是json对象，形式是：多个键string值和一个键+json数组.特别的，键值对应的模板有{{}}和&lg;literal name=""&gt;&lg;/literal&gt;</span>
+        <ul id="products">
+            <li>
+                <span>订单编号：{{no}}</span>
+                <foreach name="info">
+                    <div>
+                        <span>url：{{url}}</span>
+                        <span>other:{{other}}</span>
+                    </div>
+                </foreach>
+                <span>价格：<literal name="price">0$</literal></span>
+            </li>
+        </ul>
+        <span class="title">并列里列表</span>
+        <div>
+            
+        </div>
+        <span class="title">层级里有并列</span>
+        <div id="orderList">
+            <h2>{{title}}</h2>
+            <ul>
+                <foreach name="orderlist">
+                    <li>
+                        <p>{{productName}}</p>
+                        <div>
+                            <foreach name="imglist">
+                                <span>img url:{{url}}</span>
+                                <span>size:{{size}}</span>
+                            </foreach>
+                        </div>
+                        
+                        <div>
+                            <foreach name="otherlist">
+                                <span>other1 name:{{other1}}</span>
+                                <span>other2 name:{{other2}}</span>
+                            </foreach>
+                        </div>
+                    </li>
+                </foreach>
+            </ul>
+            <p>总价：{{total}}</p>
+        </div>
+    </div>
+<script type="text/javascript">
+var tSingle = new Template({
+        "id": "single",
+        "type":"single",
+        "callback": function(data){
+            //console.log("callback!");console.log(data);
+        }
+    }).render({"id":"201207920","name":"max","age":18}).render({"id":"201207925","name":"ting","age":18});;
+    var tLists = new Template({
+        "id": "list",
+        "type":"list",
+        "afterEach": function(data){console.log("afterEach!");console.log(data);},
+        "callback": function(data){console.log("callback!");console.log(data);}
+    }).clear().render([
+        {"title":"宇宙第一自行车","url":"taobao","name":"山地自行车","price":"100$" },
+        {"title":"一个小鞋匠","url":"taobao","name":"湖北鞋匠No1","price":"80$" }]);
+        
+//1.测试 数据对象中有json对象数组
+var tnLists = new Template({"id":"sans","type":"single"});
+tnLists.render({"title":"抽风的小电扇","lights":[{"width":"5mm","height":"15mm"},{"width":"5mm","height":"20mm"}],"price":"10$"});
+//2.测试 数据对象中有两个并列的json对象数组
+var tproduct = new Template({"id": "product","type":"single"});
+tproduct.render({
+    "title": "衣服",
+    "colorLists":[{"color":"红色","cprice":"60&"},{"color":"绿色","cprice":"30$"},{"color":"黄色","cprice":"40$"}],
+    "sizeLists":[{"size":"小","count":"10"},{"size":"中","count":"50"},{"size":"大","count":"100"}],
+    "price": "50$"
+});
+//3.测试 数据对象是列表 列表中有json对象数组
+var tproductLists = new Template({
+    "id":"products",
+    "type":"list",
+    "afterEach":function(i,node,json){
+        //console.log(json);
+        //console.log(node.innerHTML);
+        //console.log(i);
+    }
+});
+tproductLists.render(
+    [
+        {"no":1,"info":[{"url":"image1","other":"other1"},{"url":"image2","other":"other2"}],"price":"10"},
+        {"no":2,"info":[{"url":"image1","other":"other1"},{"url":"image2","other":"other2"}],"price":"10"}
+    ]);
+//4.测试 数据是数组 数组里的列表还有列表
+var level_multiArr = new Template({
+    "id":"orderList",
+    "type":"list"
+});
+level_multiArr.render(
+   [{"title":"标题1",
+     "total":"总价1",
+     "orderlist":
+        [{"productName":"产品1",
+             "imglist":[{"url":"url1","size":"size1"},
+                        {"url":"url2","size":"size2"}],
+              "otherlist":[{"other1":"other1","other2":"other2"},
+                           {"other1":"other3","other2":"other4"}]
+        },
+        {"productName":"产品2",
+             "imglist":[{"url":"url1","size":"size1"},
+                        {"url":"url2","size":"size2"}],
+              "otherlist":[{"other1":"other1","other2":"other2"},
+                           {"other1":"other3","other2":"other4"}]
+        }]},
+    {"title":"标题2",
+     "total":"总价3",
+     "orderlist":
+        [{"productName":"产品3",
+             "imglist":[{"url":"url1","size":"size1"},
+                        {"url":"url2","size":"size2"}],
+              "otherlist":[{"other1":"other1","other2":"other2"},
+                           {"other1":"other3","other2":"other4"}]
+        },
+        {"productName":"产品4",
+             "imglist":[{"url":"url1","size":"size1"},
+                        {"url":"url2","size":"size2"}],
+              "otherlist":[{"other1":"other1","other2":"other2"},
+                           {"other1":"other3","other2":"other4"}]
+        }]
+    }]);
+console.log("f5ed?");
+</script>
+</body>
+</html>

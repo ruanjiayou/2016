@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-10-1 21:16:13">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/common.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <link rel="stylesheet" href="IEcss3.css"/>
+    <![endif]-->
+    <style type="text/css">
+        #center {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #items {
+            background-color: #eee;
+            border-left: 5px solid #558ABB;
+            width: 300px;
+            padding: 10px 0;
+            counter-reset: linenumbera;
+            height: 80%;
+            overflow-y: hidden;
+        }
+
+            #items li {
+                height: 30px;
+                line-height: 30px;
+            }
+
+            #items a {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: block;
+            }
+
+                #items a:before {
+                    counter-increment: linenumbera;
+                    display: inline-block;
+                    width: 25px;
+                    text-align: right;
+                    height: 100%;
+                    margin: 0 5px;
+                    border-right: 1px solid #999;
+                    padding-right: 5px;
+                    content: " " counter(linenumbera) ". ";
+                }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p>传送门</p>
+        <ul id="items">
+            <li><a href="demo-测试IE.html" target="_blank">√ 测试IE</a></li>
+            <li><a href="demo-测试页面布局.html" target="_blank">√ 测试页面布局</a></li>
+            <li><a href="demo-测试按钮.html" target="_blank">√ 测试按钮</a></li>
+            <li><a href="demo-测试表格.html" target="_blank">√ 测试表格</a></li>
+            <li><a href="demo-测试表单.html" target="_blank">√ 测试表单</a></li>
+            <li><a href="demo-测试对话框.html" target="_blank">√ 测试对话框</a></li>
+            <li><a href="demo-测试选项卡.html" target="_blank">√ 测试选项卡</a></li>
+            <li><a href="demo-测试徽标数.html" target="_blank">√ 测试徽标数</a></li>
+            <li><a href="demo-测试iframe父窗口整屏.html" target="_blank">√ 测试iframe-整屏</a></li>
+            <li><a href="demo-测试iframe高度随内部html.html" target="_blank">√ 测试iframe-随高</a></li>
+            <li><a href="demo-测试进度条.html" target="_blank">√ 测试进度条</a></li>
+            <li><a href="demo-测试标签.html" target="_blank">√ 标签 Tags</a></li>
+            <li><a href="demo-测试ToolTip.html" target="_blank">√ 提示 ToolTip</a></li>
+            <li><a href="demo-测试步骤Steps.html" target="_blank">√ 步骤 Steps</a></li>
+            <li><a href="demo-测试分页.html" target="_blank">√ 分页 Pagination</a></li>
+            <li><a href="javascript:;">折叠 Collapse</a></li>
+            <li><a href="javascript:;">时间 Timeline</a></li>
+            <li><a href="javascript:;">滑块 slider</a></li>
+            <li><a href="javascript:;">数字 input</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //浏览器和操作系统检测
+        console.log(BrowserDetect);
+    </script>
+</body>
+</html>

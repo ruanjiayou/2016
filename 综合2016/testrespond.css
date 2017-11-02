@@ -1,0 +1,4 @@
+.box { width: 50%; background-color:#ccc; height: 50px; }
+@media screen and (max-width: 1100px){
+    .box {width:100%;}
+}

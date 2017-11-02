@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2015-9-27 10:41:48">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <script src="jquery.js"></script>
+    <script src="common.js"></script>
+    <style type="text/css">
+    html,body { overflow-y: hidden;}
+        .wrap-margin { margin: 20px; }
+        #top { height: 50px; line-height: 50px; background-color: #09f; }
+        #main { position: relative; padding-left: 20%; }
+            #main > div.nav { position: absolute; left: 0; top: 0; width: 20%; height: 100%; background-color: #069; }
+            #main > iframe { width: 100%; height: 100%; background-color: #555; }
+    </style>
+</head>
+<body>
+    <div id="top">top占位</div>
+    <div style="margin:10px;background-color:#c00;">multiply div test 没有进行函数节流</div>
+    <div id="main">
+        <div class="nav"></div><iframe id="iframe1" frameborder="0" src="iframe-full-screen.html"></iframe>
+    </div>
+    
+<script type="text/javascript">
+//只显示一屏
+;(function(){
+    var op = document.getElementById("iframe1");
+    function fullScreen(){
+        if(op===null) { console.log("node is null!"); return; }
+        var temp = op;
+        var oh = 0;
+        do{
+            oh += temp.offsetTop;
+            temp = temp.parentNode;
+        }while(temp.nodeName.toLowerCase()!="html");
+        console.log(oh);
+        op.parentNode.style["height"] = ($(window.parent).height() - oh) + "px";
+    }
+    fullScreen();
+    $(window).bind("resize",fullScreen);
+})();
+
+
+</script>
+</body>
+</html>

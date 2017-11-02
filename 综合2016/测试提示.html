@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-10-1 21:16:13">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <script src="jquery.js"></script>
+    <script src="common.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <link rel="stylesheet" href="IEcss3.css"/>
+    <![endif]-->
+    <style type="text/css">
+        #center {width:800px;margin:0 auto;padding-top:50px;padding-left:100px;}
+        
+        .tooltips { position: absolute; left: 0; display: none; z-index: 6; }
+        .tooltips > div:first-child { max-width: 150px; border-radius: 4px; padding: 10px; background-color: #666; color: #fff; }
+        .tooltips > .arrow { position: absolute; left: 50%; top: 100%; width: 0; height: 0; margin-left: -4px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #666; }
+    </style>
+</head>
+<body>
+    <div id="center" style="background-color:#fff;">
+        <p>Tooltips提示</p>
+        <div>
+            -----<label class="btn btn-info" style="position:relative;z-index:5;">测试Tooltips</label>-----
+            -----<label class="btn btn-info" style="z-index:2;">测试Tooltips</label>-----
+            -----<label class="btn btn-info" style="position:relative;color:#c00;">测试Tooltips</label>-----
+            <div class="tooltips">
+                <div>这里是tooltips提示这里是tooltips提示这里是tooltips提示这里是tooltips提示</div>
+                <div class="arrow"></div>
+            </div>
+            -----<div>-----</div>-----
+        </div>
+    </div>
+    -----<label class="btn btn-info">测试Tooltips</label>-----
+    -----<label class="btn btn-info">测试Tooltips</label>-----
+    -----<label class="btn btn-info">测试Tooltips</label>-----
+<script type="text/javascript">
+//浏览器和操作系统检测
+console.log(BrowserDetect.browser + " | " + BrowserDetect.version);
+    var o = $(".tooltips:first");
+    var btn = $(".btn")[0];
+    btn.onmouseover = function(){
+        var targetW = this.offsetWidth;
+        var targetH = this.offsetHeight;
+        var targetT = this.offsetTop;
+        var targetL = this.offsetLeft;
+        
+        clearTimeout(o[0].timer);
+        o[0].timer = null;
+        
+        o.css({"display":"block","visibility":"hidden"});
+        o[0].timer = setTimeout(function(){
+            var L = targetL + targetW/2-o[0].offsetWidth/2;
+            var T = targetT - o[0].offsetHeight-10;
+            o.css({"visibility":"visible","top": T + "px","left": L + "px"});
+        },100);
+        
+        
+    }
+    btn.onmouseout = function(){
+        clearTimeout(o[0].timer);
+        o[0].timer = null;
+        console.log("btn out")
+        o[0].timer = setTimeout(function(){
+            o.css("display","none");
+        },350);
+    }
+    o[0].onmouseover = function(){
+        var targetW = btn.offsetWidth;
+        var targetH = btn.offsetHeight;
+        var targetT = btn.offsetTop;
+        var targetL = btn.offsetLeft;
+        
+        clearTimeout(this.timer);
+        this.timer = null;
+        
+    }
+    o[0].onmouseout = function(){
+        clearTimeout(this.timer);
+        this.timer = null;
+        
+        this.timer = setTimeout(function(){
+            o.css("display","none");
+        },350);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-11-7 15:50:25">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/font-awesome.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <script src="js/rem.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        #center {
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .BGC-thead {
+            background-color: #EFF2F7;
+        }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p>兼容公司之前的样式写法</p>
+        <table>
+            <tr>
+                <td>按钮</td>
+                <td><label id="test" class="btn btn-info">测试iframe通信</label></td>
+                <td>类型</td>
+                <td><input class="txt" type="text" /></td>
+                <td>州县</td>
+                <td><select class="ddl"><option>请选择</option></select></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="vertical-align:top;"><p>描述</p></td>
+                <td><textarea class="txt-mul">描述</textarea></td>
+            </tr>
+        </table>
+        <p>1.默认表格(只重置了样式)</p>
+        <table>
+            <tr class="title BGC-thead">
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+        </table>
+        <p>5.default表格(table有border)</p>
+        <table class="default">
+            <tr class="title BGC-thead">
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+        </table>
+        <p>2.斑马纹表格</p>
+        <table class="default">
+            <tr class="title BGC-thead">
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr class="even">
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr class="even">
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+        </table>
+        <p>3.只有水平线</p>
+        <table class="line">
+            <tr class="title BGC-thead">
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+        </table>
+        <p>4.带边框</p>
+        <table class="border">
+            <tr class="title BGC-thead">
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+            <tr>
+                <td>2016-9-27</td>
+                <td>某某某</td>
+                <td>上海市普陀区金沙江路 1518 </td>
+            </tr>
+        </table>
+        <p>6.表格状态：tr给个背景色</p>
+        <p>7.固定表头 默认样式</p>
+        <div style="width: 800px;">
+            <table class="table-thead BGC-thead">
+                <colgroup><col style="width: 80px;" /><col /></colgroup>
+                <thead>
+                    <tr class="title">
+                        <th><label class="checkall check-flat">序号<input name="all[]" type="checkbox" /></label></th>
+                        <th>内容</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="table-body">
+                <table>
+                    <colgroup><col style="width: 80px;" /><col /></colgroup>
+                    <tbody>
+                        <tr>
+                            <td><label class="checkall check-flat">0<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">1<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">2<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">3<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">4<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">5<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">6<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                        <tr>
+                            <td><label class="checkall check-flat">7<input name="cc[]" type="checkbox" /></label></td>
+                            <td>我只是用来测试的</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p>8.固定表头 line样式</p>
+        <div style="width: 800px;">
+            <table class="table-thead BGC-thead">
+                <colgroup><col style="width: 80px;" /><col /></colgroup>
+                <thead>
+                    <tr class="title"><th>序号</th><th>内容</th></tr>
+                </thead>
+            </table>
+            <div class="table-body line">
+                <table>
+                    <colgroup><col style="width: 80px;" /><col /></colgroup>
+                    <tbody>
+                        <tr><td>1</td><td>我只是用来测试的</td></tr>
+                        <tr><td>2</td><td>我只是用来测试的</td></tr>
+                        <tr><td>3</td><td>我只是用来测试的</td></tr>
+                        <tr><td>4</td><td>我只是用来测试的</td></tr>
+                        <tr><td>5</td><td>我只是用来测试的</td></tr>
+                        <tr><td>6</td><td>我只是用来测试的</td></tr>
+                        <tr><td>7</td><td>我只是用来测试的</td></tr>
+                        <tr><td>8</td><td>我只是用来测试的</td></tr>
+                        <tr><td>9</td><td>我只是用来测试的</td></tr>
+                        <tr><td>10</td><td>我只是用来测试的</td></tr>
+                        <tr><td>11</td><td>我只是用来测试的</td></tr>
+                        <tr><td>12</td><td>我只是用来测试的</td></tr>
+                        <tr><td>13</td><td>我只是用来测试的</td></tr>
+                        <tr><td>14</td><td>我只是用来测试的</td></tr>
+                        <tr><td>15</td><td>我只是用来测试的</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p>9.固定表头 边框样式</p>
+        <div style="width: 800px;">
+            <table class="table-thead border BGC-thead">
+                <colgroup><col style="width: 80px;" /><col /></colgroup>
+                <thead>
+                    <tr class="title"><th>序号</th><th>内容</th></tr>
+                </thead>
+            </table>
+            <div class="table-body border">
+                <table>
+                    <colgroup><col style="width: 80px;" /><col /></colgroup>
+                    <tbody>
+                        <tr><td>1</td><td>我只是用来测试的</td></tr>
+                        <tr><td>2</td><td>我只是用来测试的</td></tr>
+                        <tr><td>3</td><td>我只是用来测试的</td></tr>
+                        <tr><td>4</td><td>我只是用来测试的</td></tr>
+                        <tr><td>5</td><td>我只是用来测试的</td></tr>
+                        <tr><td>6</td><td>我只是用来测试的</td></tr>
+                        <tr><td>7</td><td>我只是用来测试的</td></tr>
+                        <tr><td>8</td><td>我只是用来测试的</td></tr>
+                        <tr><td>9</td><td>我只是用来测试的</td></tr>
+                        <tr><td>10</td><td>我只是用来测试的</td></tr>
+                        <tr><td>11</td><td>我只是用来测试的</td></tr>
+                        <tr><td>12</td><td>我只是用来测试的</td></tr>
+                        <tr><td>13</td><td>我只是用来测试的</td></tr>
+                        <tr><td>14</td><td>我只是用来测试的</td></tr>
+                        <tr><td>15</td><td>我只是用来测试的</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("#test").click(function () {
+            if (window.parent != window) {
+                console.log("start postMessage!");
+
+                //console.log(window.parent.frames["test"].location.href);
+                window.parent.postMessage("{a:'test',age:'20'}", "*");
+            }
+        });
+        $(".checkall")[0].callback = function () {
+            var status = false;
+            if (this.className.match(/\b(checked)\b/)) status = true;
+            var ocs = document.getElementsByName("cc[]");
+            for (var i = 0; i < ocs.length; i++) {
+                if (new RegExp(/\b(checked)\b/).test(ocs[i].parentNode.className) !== status) ocs[i].click();
+            }
+        }
+    </script>
+</body>
+</html>

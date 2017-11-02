@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-10-1 21:16:13">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <script src="jquery.js"></script>
+    <script src="common.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <link rel="stylesheet" href="IEcss3.css"/>
+    <![endif]-->
+    <style type="text/css">
+        #center {width:800px;margin:0 auto;padding:50px;}
+        a { text-decoration: none; }
+        
+        .paging { padding:10px 20px; }
+        .paging_left { float:left; height:30px; line-height:30px; color:#666; }
+        .paging_left span { color:#00913E; }
+        .paging_right { float:right; height:30px; line-height:30px; }
+        .paging_right li { float:left; margin:0 0 0 10px; height:30px; line-height:30px; color:#666; }
+        .paging_right li.paging_page { margin:0 20px 0 0; }
+        .paging_right li.paging_page span { color:#00913E; }
+        .paging_right li a { display:block; height:22px; line-height:22px; width:52px; text-align:center; background:url(page_paging_bg.png) no-repeat; margin:4px 0; }
+        .paging_right li input.paging_goto_txt { width:30px; height:20px; line-height:22px; text-align:center; border:1px solid #888; border-radius: 4px; margin:3px 0; padding: 0; }
+        .paging_right li a.paging_goto_btn { display:inline-block; width:35px; text-align:center; height:24px; line-height:24px; margin:3px 0; background:#888; color:#fff; }
+
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p>1.公司的</p>
+        <div class="paging clearfix">
+            <div class="paging_left">共 <span>99</span> 条记录</div>
+            <div class="paging_right">
+                <ul>
+                    <li class="paging_page">当前 <span>1</span> / <span>9</span> 页</li>
+                    <li><a href="javascript:;" onclick="goFirst();">首页</a></li>
+                    <li><a href="javascript:;" onclick="goPrev();">上一页</a></li>
+                    <li><a href="javascript:;" onclick="goNext();">下一页</a></li>
+                    <li><a href="javascript:;" onclick="goLast();">尾页</a></li>
+                    <li>
+                        <input id="txtPage" class="paging_goto_txt" type="text" />
+                        <a class="paging_goto_btn" href="javascript:;" onclick="goPage();">跳转</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p>给公司的</p>
+        <div class="pagination">
+            <div>第<span>2</span>/<span>9</span>页  共<span>99</span>条记录</div>
+            <ul>
+                <li class="menu" onclick="">首页</li>
+                <li class="menu" onclick="">上一页</li>
+                <li class="menu" onclick="">下一页</li>
+                <li class="menu" onclick="">尾页</li>
+                <li class="goto">
+                    <input type="text" maxlength="4" />
+                    <label onclick="">跳转</label >
+                </li>
+            </ul>
+        </div>
+    </div>
+    <label class="btn hide"></label>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

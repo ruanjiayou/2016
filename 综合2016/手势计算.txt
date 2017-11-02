@@ -1,0 +1,7 @@
+﻿alloy finger 笔记
+
+getLin(v) 计算向量长度
+dot(v1,v2) 计算两向量点积
+getAngle(v1,v2) 余弦定理计算两向量角度
+cross(v1,v2) 两向量差乘 结果正负判断旋转方向
+getRotateAngle(v1,v2)

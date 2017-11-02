@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-10-1 21:16:13">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <script src="jquery.js"></script>
+    <script src="common.js"></script>
+    <style type="text/css">
+        .BGC-thead { background-color: #EFF2F7; }
+        #center {width:80%;margin:0 auto;padding:50px;}
+        .parent { display:inline-block; vertical-align:middle; width: 100%; line-height: 300px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p class="H-center30">layout布局</p>
+        <p>一列</p>
+        <div style="background-color:blue;">四列3间距 ie7有问题 通过判断浏览器用js重设容器的宽度为4的倍数或者固定父容器的宽度px为n列的倍数 只有这个办法~~</div>
+        <p>4列间距20px</p>
+        <div class="offset-20 col-4s clearfix">
+            <div><div>offset20</div></div>
+            <div><div style="margin-top:10px">offset20 margin-top:10px;</div></div>
+            <div><div>offset20</div></div>
+            <div><div>offset20</div></div>
+        </div>
+        <p>4列间距10px</p>
+        <div class="offset-10 col-4s clearfix">
+            <div><div>offset10</div></div>
+            <div><div>offset10</div></div>
+            <div><div style="margin-bottom:10px;">offset10 margin-bottom:10px;</div></div>
+            <div><div>offset10</div></div>
+        </div>
+        <p>2列间距20px</p>
+        <div class="offset-20 col-2s clearfix">
+            <div><div>offset10</div></div>
+            <div><div>offset10</div></div>
+            <div><div>offset10</div></div>
+            <div><div>offset10</div></div>
+        </div>
+        <p>4列无间距</p>
+        <div class="col-4s clearfix" style="color:#fff;">
+            <div style="background-color:#300;">1</div>
+            <div style="background-color:#600;">2</div>
+            <div style="background-color:#900;">3</div>
+            <div style="background-color:#b00;">4</div>
+        </div>
+        
+        <span>大圣杯布局要好一些 .BFC限制有点大?</span>
+        <div class="page mar-T35">
+            <p>右边固定，左边自适应</p>
+            <div class="row clearfix">
+                <div class="HL35" style="width:200px;float:right;background-color:#c00;">右边固定</div>
+                <div class="BFC HL35" style="background-color:#ccc;">左边自适应</div>
+            </div>
+        </div>
+        <div class="page mar-T35">
+            <p>左边固定，右边自适应</p>
+            <div class="row clearfix">
+                <div class="HL35" style="width:200px;float:left;background-color:#c00;">左边固定</div>
+                <div class="BFC HL35" style="background-color:#ccc;">右边自适应</div>
+            </div>
+        </div>
+        <div class="page mar-T35">
+            <p>左右固定，中间自适应</p>
+            <div class="row clearfix">
+                <div class="HL35" style="width:200px;float:left;background-color:#c00;">左右固定</div>
+                <div class="HL35" style="width:200px;float:right;background-color:#c00;">左右固定</div>
+                <div class="BFC HL35" style="background-color:#ccc;">中间自适应</div>
+            </div>
+        </div>
+        <div class="parent">
+            <a>测试垂直居中</a>
+        </div>
+    </div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

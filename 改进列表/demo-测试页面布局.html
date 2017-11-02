@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-11-7 15:50:25">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/font-awesome.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <script src="js/rem.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .BGC-thead {
+            background-color: #EFF2F7;
+        }
+        body {
+            padding: 2em;
+        }
+        #center {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid #d672dd;
+            background-color: rgba(66,66,66,0.3);
+        }
+
+        .parent {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            line-height: 300px;
+            text-align: center;
+        }
+        .w4r { width: 4rem; }
+        .w8r{
+            width: 8rem;
+        }
+        .w16r {
+            width: 16rem;
+        }
+        .bgc-gray { background-color: #ccc; }
+        .bgc-white { background-color: #fff; }
+        .c-white { color: #fff; }
+        .test-gbc1 {
+            background-color: #300;
+        }
+
+        .test-gbc2 {
+            background-color: #600;
+        }
+
+        .test-gbc3 {
+            background-color: #900;
+        }
+
+        .test-gbc4 {
+            background-color: #b00;
+        }
+
+        .cup-layout {
+            padding: 0 4rem;
+        }
+
+        .cup-layout > div.main {
+            float: left;
+            width: 100%;
+        }
+
+        .cup-layout > div.left {
+            position: relative;
+            left: -4rem;
+            float: left;
+            margin-left: -100%;
+        }
+
+        .cup-layout > div.right {
+            position: relative;
+            right: -4rem;
+            float: left;
+            margin-left: -4rem;
+        }
+
+        .fly-layout > div.wrap {
+            float: left;
+            width: 100%;
+        }
+
+        .fly-layout > div.wrap > div.main {
+            margin: 0 8rem;
+        }
+
+        .fly-layout > div.left {
+            float: left;
+            margin-left: -100%;
+        }
+
+        .fly-layout > div.right {
+            float: left;
+            margin-left: -8rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <h1 class="HL30">layout布局</h1>
+        <p>
+            BFC 块级格式上下文实现布局 触发BFC的overflow:hidden;对使用场景有限制 实现简便<br />
+            圣杯布局比双飞翼少一层div 但要有relative 不如后者。但两者都要求两侧有固定宽度<br />
+            BFC和双飞翼兼容性都非常好(圣杯布局在IE7中调整窗口会有bug) 实际中可按需求选择实现方式
+        </p>
+        <div>
+            <span>右边固定，左边自适应</span>
+            <div class="clearfix">
+                <div class="float-right w8r test-gbc3">右边固定</div>
+                <div class="BFC bgc-white">左边自适应</div>
+            </div>
+        </div>
+        <div class="mar-T10">
+            <span>左边固定，右边自适应</span>
+            <div class="clearfix">
+                <div class="float-left w8r test-gbc3">左边固定</div>
+                <div class="BFC bgc-white">右边自适应</div>
+            </div>
+        </div>
+        <div class="mar-T10">
+            <span>左右固定，中间自适应</span>
+            <div class="clearfix">
+                <div class="float-left w8r test-gbc3">左右固定</div>
+                <div class="float-right w8r test-gbc3">左右固定</div>
+                <div class="bgc-gray BFC">中间自适应</div>
+            </div>
+        </div>
+        <span>圣杯布局</span>
+        <div class="cup-layout c-white clearfix">
+            <div class="main test-gbc4">main</div>
+            <div class="left w4r test-gbc1">left</div>
+            <div class="right w4r test-gbc2">right</div>
+        </div>
+        <span>双飞翼布局</span>
+        <div class="fly-layout c-white clearfix">
+            <div class="wrap"><div class="main test-gbc4">main</div></div>
+            <div class="left w8r test-gbc1">left</div>
+            <div class="right w8r test-gbc2">right</div>
+        </div>
+        <p>说明</p>
+        <span>多列百分比 ie7有问题百分比和为100但有时会超过100造成BUG(实际中如果页面布局设置宽度为N列列数的整数倍可以解决 ) 通过判断浏览器用js重设容器的宽度为4的倍数或者固定父容器的宽度px为n列的倍数 只有这个办法~~</span>
+        <p>2列间距1rem(紧贴边界)</p>
+        <ul class="col-2s col-offset-1r c-white clearfix">
+            <li><div class="test-gbc1">offset10</div></li>
+            <li><div class="test-gbc2">offset10</div></li>
+            <li><div class="test-gbc3">offset10</div></li>
+            <li><div class="test-gbc4">offset10</div></li>
+        </ul>
+        <p>4列无间距</p>
+        <ul class="col-4s c-white clearfix">
+            <li class="test-gbc1">1</li>
+            <li class="test-gbc2">2</li>
+            <li class="test-gbc3">3</li>
+            <li class="test-gbc4">4</li>
+        </ul>
+        <p>4列间距1rem(li与li、li与边界间距相同)</p>
+        <ul class="col-4s col-offset-1r c-white clearfix">
+            <li><div class="test-gbc1">offset10</div></li>
+            <li><div class="test-gbc2">offset10</div></li>
+            <li><div class="test-gbc3">offset10</div></li>
+            <li><div class="test-gbc4">offset10</div></li>
+        </ul>
+        <p>4列间距2rem(紧贴边界)</p>
+        <ul class="col-4s col-offset-2r c-white clearfix">
+            <li><div class="test-gbc1">offset20</div></li>
+            <li><div class="test-gbc2">offset20 margin-top:10px;</div></li>
+            <li><div class="test-gbc3">offset20</div></li>
+            <li><div class="test-gbc4">offset20</div></li>
+        </ul>
+
+        <div class="parent">
+            <a>测试垂直居中</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

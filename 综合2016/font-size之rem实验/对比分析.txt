@@ -1,0 +1,23 @@
+720p dpr=2
+        QQ新闻    QQ阅读    百度新闻    知乎      淘宝      微信  
+宽度    23rem     26rem     23rem       26rem     26rem     23rem
+标题    42px      31px      43px        38px      34px      -    
+字体    31px      27px      31px        27px      27px      31px
+行高    64px      45px      48px        40px      38px      42px
+        2         1.66      1.5         1.48      1.4       1.33
+        
+平均    width = 25rem  如果按 width = 24rem 1rem = 30px
+        line-height = 1.5 rem
+
+        designWidth/(deviceWidth*dpr) = designFontSize/(defaultFontSize*dpr) = settingPercent
+        settingPercent = (deviceWidth*dpr*designFontSize)/(designWidth*defaultFontSize*dpr) = (deviceWidth/designWidth) * (designFontSize/defaultFontSize) = 720*2*30/ (720*16*2) = 60/32 = 1.875
+        16*1.875 = 30
+        designWidth designFontSize deviceWidth dpr     defaultFontSize     fontPercent 1rem
+        720         30             720         2       16                  1.875       30
+        720         30             414         3       16                  1.078       17.25
+        
+公装微信商城
+  设计稿宽度  720px
+正文字体大小  24px
+ designWidth  30rem
+ line-height  44/28=1.57

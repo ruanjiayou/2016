@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-10-1 21:16:13">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <link rel="stylesheet" href="font-awesome.css"/>
+    <script src="jquery.js"></script>
+    <script src="common.js"></script>
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <link rel="stylesheet" href="IEcss3.css"/>
+    <![endif]-->
+    <style type="text/css">
+        #center {width:800px;margin:0 auto;padding:50px;}
+        .i-loading { display: inline-block; width: 16px; height: 16px; }
+        .i-loading > img { width: 100%; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p>1.默认</p>
+        <button class="btn">按钮button</button>
+        <label class="btn">按钮label</label>
+        <a class="btn" href="javascript:;">按钮a</a>
+        <p>2.占一行</p>
+        <p>3.有边框</p>
+        <button class="btn border">按钮button</button>
+        <label class="btn border">按钮label</label>
+        <a class="btn border" href="javascript:;">按钮a</a>
+        <p>4.有边框disabled</p>
+        <button class="btn border disabled">按钮button</button>
+        <label class="btn border disabled">按钮label</label>
+        <a class="btn border disabled" href="javascript:;">按钮a</a>
+        <p>5.纯背景颜色</p>
+        <button class="btn btn-success">按钮button</button>
+        <button class="btn btn-warning">按钮button</button>
+        <button class="btn btn-danger">按钮button</button>
+        <button class="btn btn-info">按钮button</button>
+        <div>&nbsp;</div>
+        <div class="clearfix" style="background-color:#fff;"><div class="float-left"><label class="btn btn-success">按钮label</label></div></div>
+        <label class="btn btn-warning">按钮label</label>
+        <label class="btn btn-danger">按钮label</label>
+        <label class="btn btn-info">按钮label</label>
+        <div>&nbsp;</div>
+        <a class="btn btn-success" href="javascript:;">按钮a</a>
+        <a class="btn btn-warning" href="javascript:;">按钮a</a>
+        <a class="btn btn-danger" href="javascript:;">按钮a</a>
+        <a class="btn btn-info" href="javascript:;">按钮a</a>
+        <p>6.纯文字</p>
+        <button class="btn border btn-success">按钮button</button>
+        <button class="btn border btn-warning">按钮button</button>
+        <button class="btn border btn-danger">按钮button</button>
+        <button class="btn border btn-info">按钮button</button>
+        <div>&nbsp;</div>
+        <label class="btn border btn-success">按钮label</label>
+        <label class="btn border btn-warning">按钮label</label>
+        <label class="btn border btn-danger">按钮label</label>
+        <label class="btn border btn-info">按钮label</label>
+        <div>&nbsp;</div>
+        <a class="btn border btn-success" href="javascript:;">按钮a</a>
+        <a class="btn border btn-warning" href="javascript:;">按钮a</a>
+        <a class="btn border btn-danger" href="javascript:;">按钮a</a>
+        <a class="btn border btn-info" href="javascript:;">按钮a</a>
+        <p>7.带图标</p>
+        <button class="btn btn-success"><i class="fa fa-times"></i>按钮button</button>
+        <button class="btn btn-warning">按钮button<i class="fa fa-cog fa-spin fa-lg"></i></button>
+        <button class="btn btn-info">按钮button</button>
+        <label class="btn border" href="path/to/settings" aria-label="Settings">
+          <i class="fa fa-paw" aria-hidden="true"></i>
+        </label>
+        <label class="btn border" href="path/to/settings" aria-label="Settings">
+          <i class="fa fa-plus" aria-hidden="true"></i>新增
+        </label>
+        <p>8.自定义背景</p>
+        <label class="btn btn-success"><i class="fa fa-spinner fa-spin"></i>按钮label icon loading</label>
+        <label class="btn btn-success"><i class="i-loading"><img src="loading.gif"/></i>按钮label gif  loading</label>
+        <p>9.小中大</p>
+        <label class="btn">按钮label</label>
+        <label class="btn btn-sm">按钮label</label>
+        <label class="btn btn-md">按钮label</label>
+        <label class="btn btn-lg">按钮label</label>
+        <p>10.状态变化,支持ajax： edit→save→loading→edit(save1 save2)</p>
+        <label id="btn" class="btn">按钮label</label>
+        <div>&nbsp;</div>
+        <label id="test1" class="btn">3秒后log 1</label>
+        <label id="test2" class="btn">3秒后log 2</label>
+        <label class="btn hide">3秒后log 2</label>
+        <p>11.链接样式按钮</p>
+        <label class="btn btn-link edit">修改</label>
+        <label class="btn btn-link delete">删除</label>
+        <label class="btn btn-link">修改</label>
+        <label class="btn btn-link">删除</label>
+    </div>
+<script type="text/javascript">
+var btn = document.getElementById("btn");
+var btn1 = document.getElementById("test1");
+var btn2 = document.getElementById("test2");
+function test(){
+    this.innerHTML = 1;
+    console.log(this);
+}
+btn1.onclick = function(){
+    btn.innerHTML = "btn1 clicked after 3s, show 1";
+    clearTimeout(btn.timer);
+    btn.timer = null;
+    btn.timer = setTimeout(function(){test.call(btn);},3000);
+}
+btn2.onclick = function(){
+    btn.innerHTML = "btn1 clicked after 3s, show 2";
+    clearTimeout(btn.timer);
+    btn.timer = null;
+    btn.timer = setTimeout(function(){
+        btn.innerHTML = 2;
+    },3000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿/* .box1 {
+        position: relative;
+        z-index:2;
+        border-radius: 15px;
+        border:1px solid #333;
+        color:#0c0;
+        -moz-box-shadow: 10px 10px 20px #000; 
+        -webkit-box-shadow: 10px 10px 20px #000;
+        box-shadow: 10px 10px 20px #000;
+        background-color:#fff;
+        behavior: url(ie-css3.htc); 
+    } */
+.box1 {
+  width:156px;
+  height:90px;
+  text-indent:2em;
+  font-size:2em;
+  font-family:'华文新魏','华文行楷','微软雅黑';
+  color:#a6813c;
+  background: #fff url(http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg) no-repeat;
+  position:relative;
+  z-index:2;
+  
+  -moz-border-radius: 15px; /* Firefox */
+  -webkit-border-radius: 15px; /* Safari 和 Chrome */
+  border-radius: 15px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+
+  -moz-box-shadow: 10px 10px 20px #000; /* Firefox */
+  -webkit-box-shadow: 10px 10px 20px #000; /* Safari 和 Chrome */
+  box-shadow: 10px 10px 20px #000; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+
+  behavior: url(ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
+}
+.box-noimg {
+    width:200px;
+  height:40px;
+  text-indent:2em;
+  font-size:2em;
+  font-family:'华文新魏','华文行楷','微软雅黑';
+  background-color:#c00;
+  color:#a6813c;
+  position:relative;
+  z-index:2;
+  
+  -moz-border-radius: 15px; /* Firefox */
+  -webkit-border-radius: 15px; /* Safari 和 Chrome */
+  border-radius: 15px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+
+  behavior: url(ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
+}

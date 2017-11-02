@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-11-7 15:50:25">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/font-awesome.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/common.js"></script>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <script src="js/rem.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        #center {
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .form-item > label, .form-item > li > label {
+            width: 30%;
+            max-width: 6rem;
+        }
+        .form-item > div, .form-item > li > div { width: 70%; }
+        .icon-suffix {
+            margin-left: -2rem;
+            margin-right: 1.2rem;
+            color: #ccc;
+            cursor: default;
+            z-index: -2;
+            vertical-align: 0;
+        }
+        
+        .bgc-black { background-color: #bbb; }
+        .c-white { color: #fff; }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p class="bgc-black c-white">1. ul.form-item li label+div</p>
+        <ul class="form-item">
+            <li>
+                <label>单选复选</label>
+                <div>
+                    <label class="radio-flat">苹果<input name="fruit" /></label>
+                    <label class="radio-flat checked">香蕉<input name="fruit" /></label>
+                    <label class="radio-flat disabled">汽车<input name="vehicle" /></label>
+                    <label class="radio-flat disabled checked">跑车<input name="vehicle" /></label>
+                    <label class="check-flat">小<input /></label>
+                    <label class="check-flat checked">中<input name="size[]" /></label>
+                    <label class="check-flat disabled">大<input name="size[]" /></label>
+                    <label class="check-flat checked disabled">超大<input name="size[]" /></label>
+                </div>
+            </li>
+            <li>
+                <label>测试url</label>
+                <div><input id="inputURL" class="w420 BGC-gray" name="" type="text" placeholder="网址" data-validate="{required:'请输入一个网址！',vtype:'url',tip:'网址格式不正确'}" /><span class="validate-tip"></span></div>
+            </li>
+            <li>
+                <label>测试日期</label>
+                <div><input id="inputDate" name="" type="text" placeholder="日期" data-validate="{required:'请输入日期！',vtype:'date',tip:'日期格式不正确'}" /><i class="fa fa-calendar fa-lg icon-suffix" aria-hidden="true"></i><span class="validate-tip"></span></div>
+            </li>
+            <li>
+                <label>测试邮箱</label>
+                <div><input id="inputEmail" name="" type="text" placeholder="邮箱" data-validate="{required:'请输入邮箱！',vtype:'email',tip:'邮箱地址无效'}" /><i class="fa fa-times fa-lg icon-suffix c-red" aria-hidden="true"></i><span class="validate-tip"></span></div>
+            </li>
+        </ul>
+        <p class="bgc-black c-white">2. div.form-item label+div</p>
+        <div class="form-item">
+            <label>测试手机号</label>
+            <div><input id="inputPhone" name="" type="text" placeholder="手机号" data-validate="{required:'请输入手机号！',vtype:'phone',tip:'手机号码无效'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>测试身份证</label>
+            <div><input id="inputId" name="" type="text" placeholder="身份证" data-validate="{required:'请输入身份证号！',vtype:'id',tip:'身份证号无效'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>xxx测试数字字母字符</label>
+            <div><input id="inputChar" name="" type="text" placeholder="数字字母" data-validate="{required:'请输入！',vtype:'char',tip:'请输入数字或字母'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>测试equlto</label>
+            <div><input id="inputEqulto" name="" type="text" placeholder="确认**密码" data-validate="{required:'请输入密码确认！',vtype:'equlto',equlto:'#inputChar',tip:'两次输入不一致'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>测试组合</label>
+            <div><input id="inputAorB" name="" type="text" placeholder="手机号或邮箱地址" data-validate="{required:'请输入手机号或邮箱！',vtype:'email|phone',tip:'手机号或邮箱无效'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>测试自定义</label>
+            <div><input id="inputCustom" name="" type="text" placeholder="自定义最多两个小数" data-validate="{required:'请输入一个数',vtype:'custom',reg:'^\\d+(\\.\\d{1,2})?$'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>测试string</label>
+            <div><input id="inputString" name="" type="text" placeholder="字符串" data-validate="{required:'请输入',vtype:'string'}" /><span class="validate-tip"></span></div>
+        </div>
+        <div class="form-item">
+            <label>文件</label>
+            <div>
+                <label class="w120 btn border show-block" for="uploadfile">选择图片</label>
+                <input id="uploadfile" name="uploadfile" style="height:0;width:0;padding:0;border:0;" type="file" onchange="$.previewImage('img','uploadfile');vlds.Validate('test');" accept="image/jpeg, image/x-png" data-validate="{required:'请上传图片！',vtype:'file',tip:''}" />
+                <span class="validate-tip"></span>
+                <img id="img" src="css/images/file-image.png" alt="upload" />
+            </div>
+        </div>
+        <div class="form-item">
+            <label>下拉框</label>
+            <div>
+                <div id="type" class="select-box w120 float-left" data-select="{selectkv:false,auto:false,empty:true,parent:1}">
+                    <div>请选择</div>
+                    <input id="inputSelect" type="hidden" data-validate="{required:'请选择类型',vtype:'string',parent:1,tip:''}" />
+                    <input type="hidden" />
+                    <ul>
+                        <li title="支出1支出1支出1支出1支出1">支出1支出1支出1支出1支出1</li>
+                        <li title="支出2">支出2支出支出支出</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                        <li title="支出3">支出3</li>
+                    </ul>
+                </div>
+                <span class="validate-tip"></span>
+            </div>
+        </div>
+        <div class="form-item">
+            <label><label class="checkall check-flat">全部<input name="all[]" type="checkbox" /></label></label>
+            <div>
+                <label class="checkall check-flat">0<input name="cc[]" type="checkbox" /></label>
+                <label class="checkall check-flat">1<input name="cc[]" type="checkbox" /></label>
+                <label class="checkall check-flat">2<input name="cc[]" type="checkbox" /></label>
+            </div>
+        </div>
+        <div class="form-item">
+            <label>按钮</label>
+            <div>
+                <label class="btn submit btn-info no-border">提交</label>
+                <label class="btn default reset">重置</label>
+                <label class="btn default mar-L10">取消</label>
+            </div>
+        </div>
+        <p class="bgc-black c-white">3. table colgroup td</p>
+        <table class="form-table">
+            <colgroup><col class="w120" /><col /></colgroup>
+            <tr>
+                <td>按钮</td>
+                <td>
+                    <label id="test" class="btn btn-success">导出</label>
+                    <label id="test" class="btn btn-success">打印</label>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td><input class="txt" type="text" value="" /></td>
+            </tr>
+            <tr>
+                <td>州县</td>
+                <td><select class="ddl"><option>请选择</option></select></td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top;"><p>描述</p></td>
+                <td><textarea class="txt-mul">描述</textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label class="btn btn-info">提交</label>
+                    <label class="btn">取消</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label class="btn show-block btn-info">提交</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var vlds = new FormValidate();
+        vlds.Add("test", ["#inputURL", "#inputDate", "#inputEmail", "#inputPhone", "#inputId", "#inputChar", "#inputEqulto", "#inputAorB", "#inputCustom", "#inputString", "#uploadfile", "#inputSelect"]);
+        //提交前验证
+        $(".submit").click(function () {
+            if (vlds.Validate("test")) {
+                alert("passed!");
+            }
+            else {
+                alert("failed!");
+            }
+        });
+        //回调 可以用于联动
+        $.select(document.getElementById("type"), function (o) {
+            if ($(this).hasClass("validate-error")) {
+                vlds.Validate("test");
+                //TODO
+            }
+        });
+        //重置
+        $(".reset").click(function () {
+            vlds.Reset("test");
+        });
+        //全选/全不选 功能
+        $(".checkall")[0].callback = function () {
+            var status = false;
+            if (this.className.match(/\b(checked)\b/)) status = true;
+            var ocs = document.getElementsByName("cc[]");
+            for (var i = 0; i < ocs.length; i++) {
+                if (new RegExp(/\b(checked)\b/).test(ocs[i].parentNode.className) !== status) ocs[i].click();
+            }
+        }
+    </script>
+</body>
+</html>

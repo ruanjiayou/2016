@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="阮家友">
+    <meta name="Keywords" content="HTML,model,test">
+    <meta name="Description" content="special effect">
+    <meta name="time" content="2016-9-30 16:13:03">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="common.css"/>
+    <link rel="stylesheet" href="testrespond.css"/>
+    <link rel="stylesheet" href="IEcss3.css" type="text/css"/>
+    <!--[if lt IE 9]>
+        <script src="js4ie.js"></script>
+        <link rel="stylesheet" href="IEcss3.css"/>
+    <![endif]-->
+    <style>
+        #center {width:800px;margin:0 auto;padding:50px;background-color:#fff;}
+    </style>
+</head>
+<body>
+    <div id="center">
+        <p>对IE进行支持 2016-9-30 17:45:05 表现良好</p>
+        <h2>1.trim()</h2>
+        <p id="test1"></p>
+        <h2>2.JSON</h2>
+        <p id="test2"></p>
+        <h2>3.媒体查询</h2>
+        <p id="test3"></p>
+        <div class="box"></div>
+        <h2>4.HTML5标签</h2>
+        <p id="test4"></p>
+        <header>
+            <nav style="width:70%;margin:0 auto;">
+                <ul class="page_nav clearfix">
+                    <li>首页</li>
+                    <li>编程</li>
+                    <li>新闻</li>
+                    <li>文章</li>
+                    <li>娱乐</li>
+                </ul>
+            </nav>
+        </header>
+        <h2>ie css3</h2>
+        <p id="test5"></p>
+        <div class="box1"> hello world 测试IE使用border-radius</div>
+        <div class="box-noimg">ie8 radius </div>
+        <h2>.IE支持canvas</h2>
+        <p id="testcanvas"></p>
+        <canvas id="c1"></canvas>
+    </div>
+<script type="text/javascript">
+window.onload = function(){
+    //1.trim()
+    var str1 = "\n\t测试trim   ";
+    document.getElementById("test1").innerHTML = "原始字符串：<span style='background-color:#c00;'>"+str1+"</span><br/>"+
+        "trim后的字符串：<span style='background-color:#c00;'>"+str1.trim()+"</span>";
+    console.log(str1);
+    console.log(str1.trim());
+    //2.JSON
+    var str2 = '{"name":"阮家友","age":18}';
+    document.getElementById("test2").innerHTML = "原始字符串：<span style='background-color:#c00;'>"+str2+"</span><br/>"+
+        "测试结果看console控制台";
+    console.log(JSON.stringify({"name":"阮家友","age":18}));
+    try{
+        console.dir(JSON.parse(str2));
+    }
+    catch(e){
+        console.log(JSON.parse(str2));
+    }
+    //3.媒体查询
+    document.getElementById("test3").innerHTML = "必须是css文件";
+    //4.HTML5标签
+    document.getElementById("test4").innerHTML = "css样式在style标签里";
+    //5.IEcss3
+    document.getElementById("test5").innerHTML = "htc html必须同目录 ";
+    //.canvas
+    document.getElementById("testcanvas").innerHTML = "";
+    var oc1 = document.getElementById("c1");
+    var ogc = oc1.getContext("2d");
+    ogc.beginPath();
+    ogc.moveTo(10+0.5,50);
+    ogc.lineTo(100.5,100);
+    ogc.closePath();
+    ogc.stroke();
+}
+</script>
+</body>
+</html>
